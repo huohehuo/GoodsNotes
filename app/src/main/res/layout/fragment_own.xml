@@ -1,0 +1,197 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+        <ImageView
+            android:id="@+id/iv_book"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/com"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <TextView
+            tools:text="本地数量"
+            android:id="@+id/tv_num"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:layout_below="@+id/iv_book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    <include layout="@layout/line_heng"/>
+    <LinearLayout
+        android:visibility="gone"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_mood"
+            android:text="表情视图"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:layout_margin="4dp"
+            android:id="@+id/cb_change_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/CustomCheckboxTheme"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/tv_rili"
+            android:text="日历视图"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <include layout="@layout/line_heng"/>
+    <LinearLayout
+        android:id="@+id/ll_data"
+        android:layout_margin="4dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:background="@mipmap/data"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <android.support.v7.widget.AppCompatTextView
+            android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="20dp"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="match_parent"
+            android:text="基础数据"/>
+        <android.support.v7.widget.AppCompatTextView
+            android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="20dp"
+            android:id="@+id/tv_loc_num"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            tools:text="1000"/>
+    </LinearLayout>
+
+    <include layout="@layout/line_heng"/>
+    <LinearLayout
+        android:id="@+id/ll_lv"
+        android:layout_margin="4dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:background="@mipmap/lv"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <android.support.v7.widget.AppCompatTextView
+            android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="20dp"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="match_parent"
+            android:text="颜色等级"/>
+        <android.support.v7.widget.AppCompatTextView
+            android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="20dp"
+            android:id="@+id/tv_lv"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            tools:text="1000"/>
+    </LinearLayout>
+
+    <include layout="@layout/line_heng"/>
+    <LinearLayout
+        android:id="@+id/ll_cloud"
+        android:layout_margin="4dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:background="@mipmap/cloud"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <android.support.v7.widget.AppCompatTextView
+            android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="20dp"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="match_parent"
+            android:text="数据管理"/>
+        <android.support.v7.widget.AppCompatTextView
+            android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="20dp"
+            android:id="@+id/tv_cloud_num"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            tools:text="1000"/>
+    </LinearLayout>
+
+    <include layout="@layout/line_heng"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"/>
+    <TextView
+        android:id="@+id/tv_about"
+        android:layout_marginBottom="12dp"
+        android:text="关于软件"
+        android:textSize="@dimen/sp_8"
+        android:textColor="@color/gray"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+
+
+    <!--<RadioGroup-->
+        <!--android:orientation="horizontal"-->
+        <!--android:id="@+id/redorBlue"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<RadioButton-->
+            <!--android:text="表情视图"-->
+            <!--android:id="@+id/rb_1"-->
+            <!--android:checked="true"-->
+            <!--android:textColor="@color/button_blue"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="wrap_content" />-->
+        <!--<RadioButton-->
+            <!--android:text="日历视图"-->
+            <!--android:id="@+id/rb_2"-->
+            <!--android:textColor="@color/red"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="wrap_content" />-->
+        <!--<RadioButton-->
+            <!--android:text="日历视图"-->
+            <!--android:id="@+id/rb_3"-->
+            <!--android:textColor="@color/red"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="wrap_content" />-->
+    <!--</RadioGroup>-->
+
+
+</LinearLayout>

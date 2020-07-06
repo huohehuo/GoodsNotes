@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.fangzuo.assist.UI.Activity.BackUpActivity">
+    <android.support.v7.widget.CardView
+        android:id="@+id/ll1"
+        android:layout_marginBottom="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:paddingTop="25dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:text="数据管理"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_right"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="8dp"
+                android:background="@mipmap/link" />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/ll_logined"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:paddingLeft="@dimen/dp_4"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_88">
+            <ImageView
+                android:id="@+id/iv_own"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:layout_gravity="center"
+                android:background="@mipmap/home" />
+            <android.support.v7.widget.AppCompatTextView
+                android:autoSizeTextType="uniform"
+                android:autoSizeMaxTextSize="@dimen/sp_15"
+                tools:text="用户名"
+                android:id="@+id/tv_user"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_time"
+                tools:text="时间"
+                android:layout_marginRight="4dp"
+                android:textSize="@dimen/sp_10"
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <include layout="@layout/line_heng"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_backup"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:background="@drawable/backup" />
+                <TextView
+                    android:id="@+id/tv_loc_num"
+                    tools:text="本地数据"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_down"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:background="@drawable/down" />
+                <TextView
+                    android:id="@+id/tv_web_num"
+                    tools:text="网络数据"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/pg_time"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:progressDrawable="@drawable/pg_backup"
+            style="?android:attr/progressBarStyleHorizontal"/>
+        <include layout="@layout/line_heng"/>
+        <TextView
+            android:id="@+id/tv_pg_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="100%"
+            android:textSize="@dimen/sp_12"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"/>
+
+        <include layout="@layout/line_heng"/>
+    </LinearLayout>
+
+    <include layout="@layout/line_heng"/>
+    <LinearLayout
+        android:id="@+id/ll_login"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_margin="@dimen/dp_8"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/ed_name"
+                android:selectAllOnFocus="true"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp_45"
+                android:background="@drawable/bg_edittext_selector"
+                android:gravity="center_vertical"
+                android:hint="用户名"
+                android:paddingLeft="4dp"
+                android:imeOptions="actionNone"
+                android:paddingTop="2dp"
+                />
+            <ImageView
+                android:id="@+id/iv_loging"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:layout_gravity="center"
+                android:background="@mipmap/home" />
+            <EditText
+                android:id="@+id/ed_pwd"
+                android:selectAllOnFocus="true"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp_45"
+                android:background="@drawable/bg_edittext_selector"
+                android:gravity="center_vertical"
+                android:hint="密码"
+                android:paddingLeft="4dp"
+                android:imeOptions="actionNone"
+                android:paddingTop="2dp"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_38"
+            android:background="@drawable/btn_check"
+            android:text="登录"
+            android:textColor="@android:color/white" />
+        <TextView
+            android:layout_margin="@dimen/dp_2"
+            android:textColor="#aaaaaa"
+            android:text="登陆后可进行数据备份，登录后将会被锁定一段时间才能重新切换账号"
+            android:textSize="@dimen/sp_8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <include layout="@layout/line_heng"/>
+
+
+</LinearLayout>

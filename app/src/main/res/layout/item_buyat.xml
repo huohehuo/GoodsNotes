@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginTop="1dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:id="@+id/tv_sign"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.05"
+        android:padding="4dp"
+        android:textSize="@dimen/dp_18"/>
+    <include layout="@layout/line_shu" />
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/line_heng" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:padding="4dp"
+                android:textSize="18sp"
+                tools:text="名称" />
+
+            <include layout="@layout/line_shu" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:autoSizeTextType="uniform"
+                android:autoSizeMaxTextSize="@dimen/sp_17"
+                android:id="@+id/tv_addr"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="2dp"
+                android:gravity="center"
+                tools:text="时间" />
+
+        </LinearLayout>
+        <include layout="@layout/line_heng" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textSize="12sp"
+            tools:text="时间" />
+
+        <include layout="@layout/line_heng" />
+    </LinearLayout>
+
+    <include layout="@layout/line_shu" />
+
+</LinearLayout>
+

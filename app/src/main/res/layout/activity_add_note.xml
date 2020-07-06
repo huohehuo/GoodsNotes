@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.fangzuo.assist.UI.Activity.AddNoteActivity">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:paddingTop="25dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_user"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:text="添加"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_add"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="8dp"
+                android:background="@mipmap/save" />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_click"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+        <android.support.v7.widget.AppCompatTextView
+            android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="20dp"
+            android:id="@+id/tv_title"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="38dp"
+            tools:text="自动长度"
+            android:textStyle="bold"/>
+        <!--<ImageView-->
+            <!--android:layout_margin="1dp"-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:src="@mipmap/send"-->
+            <!--/>-->
+    </LinearLayout>
+    <!--<include layout="@layout/line_heng" />-->
+
+    <!--<com.fangzuo.assist.widget.SpinnerBuyUIDlg-->
+        <!--android:id="@+id/sp_buy"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:manspinner_name="购买种类"-->
+        <!--app:manspinner_size="20sp" />-->
+
+    <include layout="@layout/line_heng" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <include layout="@layout/line_heng" />
+        <TextView
+            tools:text="汇总"
+            android:id="@+id/tv_result"
+            android:textSize="@dimen/dp_15"
+            android:layout_marginLeft="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.jude.easyrecyclerview.EasyRecyclerView
+            android:id="@+id/ry_list"
+            android:layout_margin="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_empty="@layout/item_nothing"
+            app:recyclerClipToPadding="true"
+            app:scrollbarStyle="insideOverlay"
+            app:scrollbars="none" />
+
+        <include layout="@layout/line_heng" />
+    </LinearLayout>
+    <com.fangzuo.assist.widget.ViewNumber
+        android:id="@+id/tv_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <include layout="@layout/line_heng" />
+</LinearLayout>

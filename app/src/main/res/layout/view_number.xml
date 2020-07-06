@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include layout="@layout/line_shu" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content">
+        <include layout="@layout/line_heng" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include layout="@layout/line_shu" />
+            <include layout="@layout/line_shu" />
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.fangzuo.assist.widget.SpinnerAddrUIDlg
+                    android:id="@+id/sp_addr"
+                    android:layout_width="0.1dp"
+                    android:layout_height="0.1dp"
+                    app:manspinner_name="备注历史"
+                    app:manspinner_size="20sp" />
+                <EditText
+                    android:id="@+id/ed_name"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="40dp"
+                    android:background="@drawable/bg_edittext_selector"
+                    android:gravity="center_vertical"
+                    android:hint="说明"
+                    android:imeOptions="actionNone"
+                    android:selectAllOnFocus="true"
+                    />
+                <ImageView
+                    android:id="@+id/iv_history"
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_gravity="center"
+                    android:layout_margin="4dp"
+                    android:background="@mipmap/tip" />
+            </LinearLayout>
+            <include layout="@layout/line_shu" />
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text=" 金额: "
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/dp_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMaxTextSize="@dimen/sp_20"
+                    android:id="@+id/tv_result"
+                    android:layout_gravity="center"
+                    tools:text="数字"
+                    android:textSize="@dimen/sp_18"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <include layout="@layout/line_shu" />
+            <include layout="@layout/line_shu" />
+
+        </LinearLayout>
+        <include layout="@layout/line_heng" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:text="1"
+                        android:textSize="@dimen/sp_18"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                    <TextView
+                        android:id="@+id/tv2"
+                        android:text="2"
+                        android:textSize="@dimen/sp_18"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                    <TextView
+                        android:id="@+id/tv3"
+                        android:text="3"
+                        android:textSize="@dimen/sp_18"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                    <TextView
+                        android:id="@+id/tv_day"
+                        android:text="今天"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                </LinearLayout>
+
+                <include layout="@layout/line_heng" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tv4"
+                        android:text="4"
+                        android:textSize="@dimen/sp_18"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                    <TextView
+                        android:id="@+id/tv5"
+                        android:text="5"
+                        android:textSize="@dimen/sp_18"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                    <TextView
+                        android:id="@+id/tv6"
+                        android:text="6"
+                        android:textSize="@dimen/sp_18"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                    <TextView
+                        android:id="@+id/tv_jian"
+                        android:text="-"
+                        android:textSize="@dimen/sp_18"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                </LinearLayout>
+
+                <include layout="@layout/line_heng" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tv7"
+                        android:text="7"
+                        android:textSize="@dimen/sp_18"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                    <TextView
+                        android:id="@+id/tv8"
+                        android:text="8"
+                        android:textSize="@dimen/sp_18"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                    <TextView
+                        android:id="@+id/tv9"
+                        android:text="9"
+                        android:textSize="@dimen/sp_18"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                    <TextView
+                        android:id="@+id/tv_jia"
+                        android:text="+"
+                        android:textSize="@dimen/sp_18"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                </LinearLayout>
+                <include layout="@layout/line_heng" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvdian"
+                        android:text="."
+                        android:textSize="@dimen/sp_18"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                    <TextView
+                        android:id="@+id/tv0"
+                        android:text="0"
+                        android:textSize="@dimen/sp_18"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                    <TextView
+                        android:id="@+id/tvdel"
+                        android:text="删除"
+                        android:textSize="@dimen/sp_18"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                    <TextView
+                        android:id="@+id/tv_ok"
+                        android:text="完成"
+                        android:textSize="@dimen/sp_18"
+                        android:textColor="#fffefe"
+                        android:background="#050505"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50" />
+                    <include layout="@layout/line_shu" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        <include layout="@layout/line_heng" />
+    </LinearLayout>
+    <include layout="@layout/line_shu" />
+</LinearLayout>

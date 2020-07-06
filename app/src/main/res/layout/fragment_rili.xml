@@ -1,0 +1,81 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        <LinearLayout
+            android:id="@+id/picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    tools:text="2019-12-18"
+                    android:id="@+id/tv_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/money_yellow"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:src="@mipmap/ic_down" />
+        </LinearLayout>
+        <com.haibin.calendarview.CalendarView
+            android:id="@+id/cdv_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            app:current_month_text_color="#212121"
+            app:day_text_size="15sp"
+            app:month_view="com.fangzuo.assist.widget.MyMonthView"
+            app:month_view_show_mode="mode_fix"
+            app:other_month_text_color="#cccccc"
+            app:week_line_background="#e6e6e6" />
+
+        <!--<CalendarView-->
+            <!--android:id="@+id/calendarView"-->
+            <!--android:firstDayOfWeek="2"-->
+            <!--android:showWeekNumber="true"-->
+            <!--android:selectedWeekBackgroundColor="@color/cpb_blue"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--/>-->
+        <!--<include layout="@layout/line_heng"/>-->
+    <!--<RelativeLayout-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="180dp">-->
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_book"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:background="@mipmap/com"-->
+            <!--android:layout_width="50dp"-->
+            <!--android:layout_height="50dp" />-->
+        <!--<TextView-->
+            <!--tools:text="本地数量"-->
+            <!--android:id="@+id/tv_num"-->
+            <!--android:gravity="center"-->
+            <!--android:textSize="15sp"-->
+            <!--android:layout_below="@+id/iv_book"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<include layout="@layout/line_heng"/>-->
+
+
+
+
+</LinearLayout>
