@@ -33,6 +33,8 @@ public class PushCallback implements MqttCallbackExtended {
     @Override
     public void connectionLost(Throwable cause) {
         Lg.e("MQTT连接丢失");
+
+
         //We should reconnect here
     }
 
