@@ -21,6 +21,10 @@ import com.fangzuo.assist.Beans.EventBusEvent.ClassEvent;
 import com.fangzuo.assist.R;
 import com.fangzuo.assist.UI.Fragment.AddrBeanFragment;
 import com.fangzuo.assist.UI.Fragment.BuyBeanFragment;
+import com.fangzuo.assist.UI.Fragment.ColorBeanFragment;
+import com.fangzuo.assist.UI.Fragment.ModelBeanFragment;
+import com.fangzuo.assist.UI.Fragment.StuffBeanFragment;
+import com.fangzuo.assist.UI.Fragment.UnitBeanFragment;
 import com.fangzuo.assist.Utils.EventBusInfoCode;
 import com.fangzuo.assist.Utils.PagerSlidingTabStrip;
 
@@ -36,7 +40,7 @@ public class BaseDataActivity extends BaseActivity {
     PagerSlidingTabStrip tabstrip;
     @BindView(R.id.viewpager)
     ViewPager viewpager;
-    @BindColor(R.color.cpb_blue)
+    @BindColor(R.color.yellow_alpha)
     int cpb_blue;
     public int tag;
     @BindView(R.id.tv_tip)
@@ -69,9 +73,17 @@ public class BaseDataActivity extends BaseActivity {
         ArrayList<Fragment> fragments = new ArrayList<>();
         ArrayList<String> titles = new ArrayList<>();
         fragments.add(new BuyBeanFragment());
-        fragments.add(new AddrBeanFragment());
-        titles.add("记录标签");
-        titles.add("备注历史");
+//        fragments.add(new AddrBeanFragment());
+        fragments.add(new UnitBeanFragment());
+        fragments.add(new ColorBeanFragment());
+        fragments.add(new ModelBeanFragment());
+        fragments.add(new StuffBeanFragment());
+        titles.add("客户");
+//        titles.add("备注历史");
+        titles.add("单位");
+        titles.add("颜色");
+        titles.add("规格");
+        titles.add("材料");
         StripAdapter stripAdapter = new StripAdapter(getSupportFragmentManager(), fragments, titles);
         Log.e("stripAdapter", stripAdapter + "");
         viewpager.setAdapter(stripAdapter);

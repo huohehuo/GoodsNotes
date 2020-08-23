@@ -80,12 +80,7 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-//        if (null == ryList)return;
-//        if (Hawk.get(Info.ChangeView,0)==0){
-//            adapter = new HomeRyAdapter(mContext,0);
-//        }else{
-            adapter = new HomeRyAdapter(mContext);
-//        }
+        adapter = new HomeRyAdapter(mContext);
         ryList.setAdapter(adapter);
         ryList.setLayoutManager(new LinearLayoutManager(mContext));
         ryList.setRefreshing(true);
@@ -98,19 +93,6 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void loadListData(){
-//        if (null == ryList)return;
-//        if (Hawk.get(Info.ChangeView,0)==0){
-//            adapter = new HomeRyAdapter(mContext,0);
-//        }else{
-//            adapter = new HomeRyAdapter(mContext,1);
-//        }
-//        ryList.setAdapter(adapter);
-//        ryList.setLayoutManager(new LinearLayoutManager(mContext));
-//        ryList.setRefreshing(true);
-//        adapter.clear();
-//        adapter.addAll(noteBeanDao.loadAll());
-//        ryList.setRefreshing(false);
-
 
         adapter.notifyDataSetChanged();
         //列表点击事件
@@ -157,20 +139,20 @@ public class HomeFragment extends BaseFragment {
         JSONObject objects =new JSONObject();
 
 
-        Lg.e("实体1",buyBean);
-        Lg.e("实体1",buyBean.FName);
-        Lg.e("实体1","FName".equals(buyBean.FName));
-        Lg.e("实体2",buyBean.getClass().getSimpleName());
-        Lg.e("实体3",buyBean.hashCode());
-
-        String string = "FName,FNumber,FUnit,FDate,FCreate";
-        String[] strings = string.split(",");
-        for (int i = 0; i < strings.length; i++) {
-            Lg.e("数组字段：",strings[i]);
-            if ("FName".equals(strings[i])){
-//                buyBean.FName =
-            }
-        }
+//        Lg.e("实体1",buyBean);
+//        Lg.e("实体1",buyBean.FName);
+//        Lg.e("实体1","FName".equals(buyBean.FName));
+//        Lg.e("实体2",buyBean.getClass().getSimpleName());
+//        Lg.e("实体3",buyBean.hashCode());
+//
+//        String string = "FName,FNumber,FUnit,FDate,FCreate";
+//        String[] strings = string.split(",");
+//        for (int i = 0; i < strings.length; i++) {
+//            Lg.e("数组字段：",strings[i]);
+//            if ("FName".equals(strings[i])){
+////                buyBean.FName =
+//            }
+//        }
 
 
     }

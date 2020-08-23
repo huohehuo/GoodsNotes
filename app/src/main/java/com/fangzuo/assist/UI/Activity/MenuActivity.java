@@ -37,6 +37,7 @@ import com.fangzuo.assist.Beans.CommonResponse;
 import com.fangzuo.assist.Beans.EventBusEvent.ClassEvent;
 import com.fangzuo.assist.Beans.WebResponse;
 import com.fangzuo.assist.RxSerivce.LinSubscribe;
+import com.fangzuo.assist.RxSerivce.MySubscribe;
 import com.fangzuo.assist.UI.Fragment.HomeFragment;
 import com.fangzuo.assist.UI.Fragment.OwnFragment;
 import com.fangzuo.assist.R;
@@ -49,6 +50,7 @@ import com.fangzuo.assist.Utils.Lg;
 import com.fangzuo.assist.Utils.LocDataUtil;
 import com.fangzuo.assist.Utils.UpgradeUtil.AppStatisticalUtil;
 import com.fangzuo.assist.Utils.UpgradeUtil.AppVersionUtil;
+import com.fangzuo.assist.Utils.VibratorUtil;
 import com.fangzuo.assist.widget.LoadingUtil;
 import com.fangzuo.greendao.gen.BuyBeanDao;
 import com.fangzuo.greendao.gen.DaoSession;
@@ -210,9 +212,9 @@ public class MenuActivity extends BaseActivity  implements EasyPermissions.Permi
 
     }
 
-    private void testDatt(){
+    private void testDatt(String name){
         WebResponse webResponse = new WebResponse();
-        webResponse.json = "name";
+        webResponse.json = name;
         App.getRService().doIOActionPost("TestIO", webResponse, new LinSubscribe<WebResponse>() {
             @Override
             public void onNext(WebResponse commonResponse) {
@@ -247,7 +249,7 @@ public class MenuActivity extends BaseActivity  implements EasyPermissions.Permi
     AlertDialog alertDialog;
     private void selectAdd(){
         AlertDialog.Builder ab = new AlertDialog.Builder(mContext);
-        ab.setTitle("请选择标签");
+        ab.setTitle("请选择客户名称");
         View v = LayoutInflater.from(mContext).inflate(R.layout.menu_add, null);
         EasyRecyclerView lv = v.findViewById(R.id.ry_list);
         final BaseDataRyAdapter adapter = new BaseDataRyAdapter(mContext);
@@ -265,7 +267,7 @@ public class MenuActivity extends BaseActivity  implements EasyPermissions.Permi
         });
 //        ab.setMessage(msg);
         ab.setPositiveButton("返回",null);
-        ab.setNeutralButton("添加标签", new DialogInterface.OnClickListener() {
+        ab.setNeutralButton("添加新客户", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 insertBuyBean();
@@ -304,12 +306,19 @@ public class MenuActivity extends BaseActivity  implements EasyPermissions.Permi
 
 
 
-
+    int sss =0;
     @OnClick({R.id.iv_add, R.id.ll1,R.id.bottom_btn_purchase,R.id.bottom_btn_sale,R.id.bottom_btn_setting})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_add:
                 selectAdd();
+//                testDatt(sss+"");
+//                sss++;
+//                for (int i = sss; i < sss+50; i++) {
+//                    testDatt("数据"+i);
+//                }
+
+                VibratorUtil.Vibrate(mContext, 200);
                 break;
             case R.id.ll1:
                 break;
@@ -336,6 +345,13 @@ public class MenuActivity extends BaseActivity  implements EasyPermissions.Permi
                 break;
 
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        sss =0;
     }
 
     //权限获取-------------------------------------------------------------

@@ -20,8 +20,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textColor="@color/black"
             android:gravity="center_vertical"
-            android:textSize="18sp"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
             tools:text="名称" />
 
         <TextView

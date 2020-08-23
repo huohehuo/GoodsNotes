@@ -7,7 +7,13 @@
     android:layout_marginTop="1dp"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
+    <ImageView
+        android:src="@mipmap/day_bg"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.05" />
     <TextView
+        android:visibility="gone"
         android:id="@+id/tv_sign"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -30,7 +36,9 @@
             android:orientation="horizontal">
 
             <TextView
+                android:background="#504f4f"
                 android:id="@+id/tv_name"
+                android:textColor="@color/white"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -38,23 +46,89 @@
                 android:textSize="18sp"
                 tools:text="名称" />
 
-            <include layout="@layout/line_shu" />
+        </LinearLayout>
+        <include layout="@layout/line_heng" />
+        <LinearLayout
+            android:paddingLeft="@dimen/dp_4"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <android.support.v7.widget.AppCompatTextView
                 android:autoSizeTextType="uniform"
-                android:autoSizeMaxTextSize="@dimen/sp_17"
-                android:id="@+id/tv_addr"
+                android:textSize="@dimen/sp_18"
+                android:id="@+id/tv_num"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginLeft="2dp"
-                android:gravity="center"
-                tools:text="时间" />
+                tools:text="数量" />
+            <include layout="@layout/line_shu" />
 
+            <android.support.v7.widget.AppCompatTextView
+                android:textSize="@dimen/sp_18"
+                android:autoSizeTextType="uniform"
+                android:id="@+id/tv_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="单价" />
+        </LinearLayout>
+        <include layout="@layout/line_heng" />
+        <LinearLayout
+            android:paddingLeft="@dimen/dp_4"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.AppCompatTextView
+                android:autoSizeTextType="uniform"
+                android:textSize="@dimen/sp_18"
+                android:id="@+id/tv_color"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="颜色" />
+            <include layout="@layout/line_shu" />
+            <android.support.v7.widget.AppCompatTextView
+                android:autoSizeTextType="uniform"
+                android:textSize="@dimen/sp_18"
+                android:id="@+id/tv_stuff"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="材料" />
+        </LinearLayout>
+        <include layout="@layout/line_heng" />
+        <LinearLayout
+            android:paddingLeft="@dimen/dp_4"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.AppCompatTextView
+                android:autoSizeTextType="uniform"
+                android:textSize="@dimen/sp_25"
+                android:id="@+id/tv_model"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textStyle="bold"
+                tools:text="规格" />
+            <include layout="@layout/line_shu" />
+            <android.support.v7.widget.AppCompatTextView
+                android:autoSizeTextType="uniform"
+                android:id="@+id/tv_unit"
+                android:layout_width="0dp"
+                android:textSize="@dimen/sp_18"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="单位" />
         </LinearLayout>
         <include layout="@layout/line_heng" />
 
+
+
         <TextView
+            android:visibility="gone"
             android:id="@+id/tv_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

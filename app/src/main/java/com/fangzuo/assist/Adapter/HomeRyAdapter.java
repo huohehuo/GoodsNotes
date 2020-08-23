@@ -65,9 +65,9 @@ public class HomeRyAdapter extends RecyclerArrayAdapter<NoteBean> {
             name.setText(data.NBuyName);
             time.setText("最近一次更新:"+data.Ntime);
             String num = LocDataUtil.getBuyAtAllNum(data.NBuyName);
-            detail.setText("汇总: "+MathUtil.toDBigString(num));
+//            detail.setText("汇总: "+MathUtil.toDBigString(num));
             detail2.setText("条数: "+LocDataUtil.getBuyAtAllSize(data.NBuyName));
-            tvSign.setBackgroundColor(getColor(num));
+//            tvSign.setBackgroundColor(getColor(num));
 //            Glide.with(getContext())
 //                    .load(CommonUtil.getMoodByType(data.NMoodLocInt))
 ////                    .load(R.drawable.happy)

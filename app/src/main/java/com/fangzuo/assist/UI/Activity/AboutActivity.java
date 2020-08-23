@@ -24,7 +24,8 @@ public class AboutActivity extends BaseActivity {
     protected void initView() {
         setContentView(R.layout.activity_about);
         ButterKnife.bind(this);
-        url=BasicShareUtil.getInstance(mContext).getBaseURL()+"App/AppAbout.jsp";
+//        url=BasicShareUtil.getInstance(mContext).getBaseURL()+"App/AppAbout.jsp";
+        url=BasicShareUtil.getInstance(mContext).getBaseURL()+"App4GoodsNotes/App4GoodsNotesFile.jsp";
         initBar();
         wbAction.setViewGone();
 
@@ -58,11 +59,5 @@ public class AboutActivity extends BaseActivity {
 //        intent.putExtra("buybean", buybean);
 //        intent.putStringArrayListExtra("fid", fid);
         context.startActivity(intent);
-    }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
     }
 }

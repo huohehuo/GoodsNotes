@@ -8,14 +8,21 @@ import android.util.Log;
 
 import com.fangzuo.assist.Dao.AddrBean;
 import com.fangzuo.assist.Dao.BuyBean;
+import com.fangzuo.assist.Dao.ColorBean;
+import com.fangzuo.assist.Dao.ModelBean;
 import com.fangzuo.assist.Dao.NoteBean;
+import com.fangzuo.assist.Dao.StuffBean;
 import com.fangzuo.assist.Dao.User;
 import com.fangzuo.greendao.gen.AddrBeanDao;
 import com.fangzuo.greendao.gen.BibieDao;
 import com.fangzuo.greendao.gen.BuyAtBeanDao;
 import com.fangzuo.greendao.gen.BuyBeanDao;
+import com.fangzuo.greendao.gen.ColorBeanDao;
 import com.fangzuo.greendao.gen.DaoMaster;
+import com.fangzuo.greendao.gen.ModelBeanDao;
 import com.fangzuo.greendao.gen.NoteBeanDao;
+import com.fangzuo.greendao.gen.StuffBeanDao;
+import com.fangzuo.greendao.gen.UnitBeanDao;
 import com.fangzuo.greendao.gen.UserDao;
 
 import org.greenrobot.greendao.AbstractDao;
@@ -53,6 +60,10 @@ public class DbUpgradeHelper extends DaoMaster.DevOpenHelper {
                NoteBeanDao.class,
                AddrBeanDao.class,
                BuyBeanDao.class,
+               ColorBeanDao.class,
+               UnitBeanDao.class,
+               StuffBeanDao.class,
+               ModelBeanDao.class,
                BuyAtBeanDao.class
        );
     }

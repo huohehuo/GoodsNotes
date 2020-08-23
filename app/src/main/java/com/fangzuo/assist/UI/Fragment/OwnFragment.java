@@ -29,12 +29,15 @@ import com.fangzuo.assist.Dao.AddrBean;
 import com.fangzuo.assist.Dao.BarCode;
 import com.fangzuo.assist.Dao.BuyAtBean;
 import com.fangzuo.assist.Dao.BuyBean;
+import com.fangzuo.assist.Dao.NoteBean;
 import com.fangzuo.assist.R;
+import com.fangzuo.assist.RxSerivce.LinSubscribe;
 import com.fangzuo.assist.RxSerivce.MySubscribe;
 import com.fangzuo.assist.UI.Activity.AboutActivity;
 import com.fangzuo.assist.UI.Activity.BackUpActivity;
 import com.fangzuo.assist.UI.Activity.BaseDataActivity;
 import com.fangzuo.assist.UI.Activity.ScanTestActivity;
+import com.fangzuo.assist.UI.MQTTActivity;
 import com.fangzuo.assist.Utils.GreenDaoManager;
 import com.fangzuo.assist.Utils.Info;
 import com.fangzuo.assist.Utils.Lg;
@@ -109,6 +112,36 @@ public class OwnFragment extends BaseFragment {
             tvRili.setTextColor(mContext.getResources().getColor(R.color.black));
             tvMood.setTextColor(mContext.getResources().getColor(R.color.red));
         }
+
+
+    }
+    private void backUpData(){
+        LoadingUtil.showDialog(mContext, "正在上传....");
+        WebResponse webResponse = new WebResponse();
+        ArrayList<BuyAtBean> buyAtBeans = new ArrayList<>();
+        ArrayList<NoteBean> noteBeans = new ArrayList<>();
+        buyAtBeans.addAll(daoSession.getBuyAtBeanDao().loadAll());
+        noteBeans.addAll(daoSession.getNoteBeanDao().loadAll());
+        webResponse.buyAtBeans = buyAtBeans;
+        webResponse.noteBeans = noteBeans;
+//        webResponse.json = Hawk.get(Info.User_Code, "");//用于确定数据文件名
+        App.getRService().doIOActionPost("BackUpGoodsNotes", webResponse, new LinSubscribe<WebResponse>() {
+            @Override
+            public void onNext(WebResponse commonResponse) {
+                LoadingUtil.dismiss();
+                if (commonResponse.state){
+                    LoadingUtil.showAlter(mContext, "上传成功",commonResponse.backString);
+                }
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+                LoadingUtil.dismiss();
+                LoadingUtil.showAlter(mContext, "数据备份失败,服务器无响应");
+            }
+        });
     }
 
     @Override
@@ -282,7 +315,7 @@ public class OwnFragment extends BaseFragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (isVisibleToUser) {
-            if (null != noteBeanDao) tvNum.setText("叙:" + noteBeanDao.loadAll().size());
+            if (null != noteBeanDao) tvNum.setText("本地笔记:" + noteBeanDao.queryBuilder().count());
             //相当于Fragment的onResume
         } else {
             //相当于Fragment的onPause
@@ -299,9 +332,10 @@ public class OwnFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_book:
+                backUpData();
                 break;
             case R.id.tv_num:
-                tvNum.setText("叙:" + noteBeanDao.loadAll().size());
+                tvNum.setText("本地笔记:" + noteBeanDao.queryBuilder().count());
 
                 break;
             case R.id.ll_data:
@@ -312,8 +346,11 @@ public class OwnFragment extends BaseFragment {
 //                ScanTestActivity.start(mContext);
                 break;
             case R.id.ll_lv:
-                LoadingUtil.showDialog(mContext,"正在获取...");
-               showLvDlg();
+                MQTTActivity.start(mContext);
+
+
+//                LoadingUtil.showDialog(mContext,"正在获取...");
+//               showLvDlg();
                 break;
             case R.id.tv_about:
                 AboutActivity.start(mContext);

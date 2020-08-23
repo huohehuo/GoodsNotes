@@ -119,6 +119,8 @@ public class MathUtil {
         return bd1.multiply(bd2).doubleValue();
     }
     public static double mul(String d1,String d2){
+        if (null==d1 ||"".equals(d1))d1="0";
+        if (null==d2 ||"".equals(d2))d2="0";
         BigDecimal bd1 = new BigDecimal(d1);
         BigDecimal bd2 = new BigDecimal(d2);
         return bd1.multiply(bd2).doubleValue();

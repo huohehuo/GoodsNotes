@@ -32,4 +32,12 @@ public class EventBusInfoCode {
     public static final String Close_Activity = "Close_Activity";
     public static final String BaseData_Tip = "BaseData_Tip";
 
+
+    public static final String Event_Model = "Event_Model";
+    public static final String Event_Color = "Event_Color";
+    public static final String Event_Unit = "Event_Unit";
+    public static final String Event_Stuff = "Event_Stuff";
+
+    public static final String Event_MQTT = "Event_MQTT";
+
 }

@@ -15,7 +15,7 @@ android {
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
     defaultConfig {
-        applicationId "com.fangzuo.assist.xuthing"
+        applicationId "com.fangzuo.assist.goodsnotes"
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 4
@@ -54,7 +54,7 @@ android {
 }
 
 greendao {
-    schemaVersion 29
+    schemaVersion 32
     daoPackage 'com.fangzuo.greendao.gen'
     targetGenDir 'src/main/java'
 }
@@ -102,4 +102,11 @@ dependencies {
     implementation 'com.haibin:calendarview:3.6.6'
     implementation 'com.contrarywind:Android-PickerView:4.1.6'
     implementation files('libs/tess-two.tesseract3.01-leptonica1.68-LibJPEG6b.jar')
+//    implementation files('libs/paho-mqtt-client-1.0.1.jar')
+//    implementation files('libs/paho-mqtt-client-1.0.1-sources.jar')
+
+
+    //mqtt相关库
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
 }

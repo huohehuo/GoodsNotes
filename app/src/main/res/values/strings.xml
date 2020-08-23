@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">标签记账</string>
+    <string name="app_name">货物笔记</string>
 
     <string name="activity_crop_waiting_read">正在读取图片</string>
     <string name="common_hint">提示</string>

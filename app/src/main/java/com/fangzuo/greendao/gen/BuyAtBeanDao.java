@@ -32,10 +32,16 @@ public class BuyAtBeanDao extends AbstractDao<BuyAtBean, Long> {
         public final static Property FAddrName = new Property(5, String.class, "FAddrName", false, "FADDR_NAME");
         public final static Property FBuyID = new Property(6, String.class, "FBuyID", false, "FBUY_ID");
         public final static Property FBuyName = new Property(7, String.class, "FBuyName", false, "FBUY_NAME");
-        public final static Property FCreateData = new Property(8, String.class, "FCreateData", false, "FCREATE_DATA");
-        public final static Property FIsCloud = new Property(9, String.class, "FIsCloud", false, "FIS_CLOUD");
-        public final static Property FUseNum = new Property(10, String.class, "FUseNum", false, "FUSE_NUM");
-        public final static Property FMapID = new Property(11, String.class, "FMapID", false, "FMAP_ID");
+        public final static Property FSum = new Property(8, String.class, "FSum", false, "FSUM");
+        public final static Property FPrice = new Property(9, String.class, "FPrice", false, "FPRICE");
+        public final static Property FColorName = new Property(10, String.class, "FColorName", false, "FCOLOR_NAME");
+        public final static Property FModelName = new Property(11, String.class, "FModelName", false, "FMODEL_NAME");
+        public final static Property FStuffName = new Property(12, String.class, "FStuffName", false, "FSTUFF_NAME");
+        public final static Property FUnitName = new Property(13, String.class, "FUnitName", false, "FUNIT_NAME");
+        public final static Property FCreateData = new Property(14, String.class, "FCreateData", false, "FCREATE_DATA");
+        public final static Property FIsCloud = new Property(15, String.class, "FIsCloud", false, "FIS_CLOUD");
+        public final static Property FUseNum = new Property(16, String.class, "FUseNum", false, "FUSE_NUM");
+        public final static Property FMapID = new Property(17, String.class, "FMapID", false, "FMAP_ID");
     }
 
 
@@ -59,10 +65,16 @@ public class BuyAtBeanDao extends AbstractDao<BuyAtBean, Long> {
                 "\"FADDR_NAME\" TEXT," + // 5: FAddrName
                 "\"FBUY_ID\" TEXT," + // 6: FBuyID
                 "\"FBUY_NAME\" TEXT," + // 7: FBuyName
-                "\"FCREATE_DATA\" TEXT," + // 8: FCreateData
-                "\"FIS_CLOUD\" TEXT," + // 9: FIsCloud
-                "\"FUSE_NUM\" TEXT," + // 10: FUseNum
-                "\"FMAP_ID\" TEXT);"); // 11: FMapID
+                "\"FSUM\" TEXT," + // 8: FSum
+                "\"FPRICE\" TEXT," + // 9: FPrice
+                "\"FCOLOR_NAME\" TEXT," + // 10: FColorName
+                "\"FMODEL_NAME\" TEXT," + // 11: FModelName
+                "\"FSTUFF_NAME\" TEXT," + // 12: FStuffName
+                "\"FUNIT_NAME\" TEXT," + // 13: FUnitName
+                "\"FCREATE_DATA\" TEXT," + // 14: FCreateData
+                "\"FIS_CLOUD\" TEXT," + // 15: FIsCloud
+                "\"FUSE_NUM\" TEXT," + // 16: FUseNum
+                "\"FMAP_ID\" TEXT);"); // 17: FMapID
     }
 
     /** Drops the underlying database table. */
@@ -115,24 +127,54 @@ public class BuyAtBeanDao extends AbstractDao<BuyAtBean, Long> {
             stmt.bindString(8, FBuyName);
         }
  
+        String FSum = entity.getFSum();
+        if (FSum != null) {
+            stmt.bindString(9, FSum);
+        }
+ 
+        String FPrice = entity.getFPrice();
+        if (FPrice != null) {
+            stmt.bindString(10, FPrice);
+        }
+ 
+        String FColorName = entity.getFColorName();
+        if (FColorName != null) {
+            stmt.bindString(11, FColorName);
+        }
+ 
+        String FModelName = entity.getFModelName();
+        if (FModelName != null) {
+            stmt.bindString(12, FModelName);
+        }
+ 
+        String FStuffName = entity.getFStuffName();
+        if (FStuffName != null) {
+            stmt.bindString(13, FStuffName);
+        }
+ 
+        String FUnitName = entity.getFUnitName();
+        if (FUnitName != null) {
+            stmt.bindString(14, FUnitName);
+        }
+ 
         String FCreateData = entity.getFCreateData();
         if (FCreateData != null) {
-            stmt.bindString(9, FCreateData);
+            stmt.bindString(15, FCreateData);
         }
  
         String FIsCloud = entity.getFIsCloud();
         if (FIsCloud != null) {
-            stmt.bindString(10, FIsCloud);
+            stmt.bindString(16, FIsCloud);
         }
  
         String FUseNum = entity.getFUseNum();
         if (FUseNum != null) {
-            stmt.bindString(11, FUseNum);
+            stmt.bindString(17, FUseNum);
         }
  
         String FMapID = entity.getFMapID();
         if (FMapID != null) {
-            stmt.bindString(12, FMapID);
+            stmt.bindString(18, FMapID);
         }
     }
 
@@ -180,24 +222,54 @@ public class BuyAtBeanDao extends AbstractDao<BuyAtBean, Long> {
             stmt.bindString(8, FBuyName);
         }
  
+        String FSum = entity.getFSum();
+        if (FSum != null) {
+            stmt.bindString(9, FSum);
+        }
+ 
+        String FPrice = entity.getFPrice();
+        if (FPrice != null) {
+            stmt.bindString(10, FPrice);
+        }
+ 
+        String FColorName = entity.getFColorName();
+        if (FColorName != null) {
+            stmt.bindString(11, FColorName);
+        }
+ 
+        String FModelName = entity.getFModelName();
+        if (FModelName != null) {
+            stmt.bindString(12, FModelName);
+        }
+ 
+        String FStuffName = entity.getFStuffName();
+        if (FStuffName != null) {
+            stmt.bindString(13, FStuffName);
+        }
+ 
+        String FUnitName = entity.getFUnitName();
+        if (FUnitName != null) {
+            stmt.bindString(14, FUnitName);
+        }
+ 
         String FCreateData = entity.getFCreateData();
         if (FCreateData != null) {
-            stmt.bindString(9, FCreateData);
+            stmt.bindString(15, FCreateData);
         }
  
         String FIsCloud = entity.getFIsCloud();
         if (FIsCloud != null) {
-            stmt.bindString(10, FIsCloud);
+            stmt.bindString(16, FIsCloud);
         }
  
         String FUseNum = entity.getFUseNum();
         if (FUseNum != null) {
-            stmt.bindString(11, FUseNum);
+            stmt.bindString(17, FUseNum);
         }
  
         String FMapID = entity.getFMapID();
         if (FMapID != null) {
-            stmt.bindString(12, FMapID);
+            stmt.bindString(18, FMapID);
         }
     }
 
@@ -217,10 +289,16 @@ public class BuyAtBeanDao extends AbstractDao<BuyAtBean, Long> {
             cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // FAddrName
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // FBuyID
             cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // FBuyName
-            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // FCreateData
-            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9), // FIsCloud
-            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10), // FUseNum
-            cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11) // FMapID
+            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // FSum
+            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9), // FPrice
+            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10), // FColorName
+            cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11), // FModelName
+            cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12), // FStuffName
+            cursor.isNull(offset + 13) ? null : cursor.getString(offset + 13), // FUnitName
+            cursor.isNull(offset + 14) ? null : cursor.getString(offset + 14), // FCreateData
+            cursor.isNull(offset + 15) ? null : cursor.getString(offset + 15), // FIsCloud
+            cursor.isNull(offset + 16) ? null : cursor.getString(offset + 16), // FUseNum
+            cursor.isNull(offset + 17) ? null : cursor.getString(offset + 17) // FMapID
         );
         return entity;
     }
@@ -235,10 +313,16 @@ public class BuyAtBeanDao extends AbstractDao<BuyAtBean, Long> {
         entity.setFAddrName(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
         entity.setFBuyID(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
         entity.setFBuyName(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
-        entity.setFCreateData(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
-        entity.setFIsCloud(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
-        entity.setFUseNum(cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10));
-        entity.setFMapID(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
+        entity.setFSum(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
+        entity.setFPrice(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
+        entity.setFColorName(cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10));
+        entity.setFModelName(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
+        entity.setFStuffName(cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12));
+        entity.setFUnitName(cursor.isNull(offset + 13) ? null : cursor.getString(offset + 13));
+        entity.setFCreateData(cursor.isNull(offset + 14) ? null : cursor.getString(offset + 14));
+        entity.setFIsCloud(cursor.isNull(offset + 15) ? null : cursor.getString(offset + 15));
+        entity.setFUseNum(cursor.isNull(offset + 16) ? null : cursor.getString(offset + 16));
+        entity.setFMapID(cursor.isNull(offset + 17) ? null : cursor.getString(offset + 17));
      }
     
     @Override

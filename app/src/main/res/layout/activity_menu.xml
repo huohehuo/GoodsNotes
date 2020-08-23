@@ -35,7 +35,7 @@
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
                 android:scrollHorizontally="true"
-                android:text="叙"
+                android:text="货物笔记"
                 android:textColor="@android:color/black"
                 android:layout_marginLeft="12dp"
                 android:textSize="18sp"

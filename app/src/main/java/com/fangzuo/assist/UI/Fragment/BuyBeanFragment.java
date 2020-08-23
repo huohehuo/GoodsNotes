@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,9 +26,12 @@ import com.fangzuo.assist.Utils.GreenDaoManager;
 import com.fangzuo.assist.Utils.Lg;
 import com.fangzuo.assist.Utils.LocDataUtil;
 import com.fangzuo.assist.Utils.Toast;
+import com.fangzuo.assist.Utils.VibratorUtil;
 import com.fangzuo.greendao.gen.BuyBeanDao;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -70,31 +75,33 @@ public class BuyBeanFragment extends BaseFragment {
         adapter = new BaseDataRyAdapter(mContext);
         ryList.setAdapter(adapter);
         ryList.setLayoutManager(new LinearLayoutManager(mContext));
-        ryList.setRefreshing(true);
-        adapter.clear();
-        adapter.addAll(buyBeanDao.queryBuilder().orderDesc(BuyBeanDao.Properties.Id).build().list());
-        adapter.notifyDataSetChanged();
-        ryList.setRefreshing(false);
+        searchData();
 
-        loadListData();
     }
 
-    private void loadListData() {
-//        if (null == ryList)return;
-//        if (Hawk.get(Info.ChangeView,0)==0){
-//            adapter = new HomeRyAdapter(mContext,0);
-//        }else{
-//            adapter = new HomeRyAdapter(mContext,1);
-//        }
-//        ryList.setAdapter(adapter);
-//        ryList.setLayoutManager(new LinearLayoutManager(mContext));
-//        ryList.setRefreshing(true);
-//        adapter.clear();
-//        adapter.addAll(buyBeanDao.loadAll());
-//        ryList.setRefreshing(false);
 
 
+    private void searchData(){
+        ryList.setRefreshing(true);
+        adapter.clear();
+        List<BuyBean> list = buyBeanDao.queryBuilder().where(
+                BuyBeanDao.Properties.FName.like("%"+edName.getText().toString()+"%")
+        ).orderAsc(BuyBeanDao.Properties.FName).build().list();
+        adapter.addAll(list);
         adapter.notifyDataSetChanged();
+        ryList.setRefreshing(false);
+    }
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        initData();
+    }
+
+    @Override
+    protected void initListener() {
         //列表点击事件
         adapter.setOnItemClickListener(new RecyclerArrayAdapter.OnItemClickListener() {
             @Override
@@ -121,17 +128,24 @@ public class BuyBeanFragment extends BaseFragment {
                 return true;
             }
         });
-    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        initData();
-    }
 
-    @Override
-    protected void initListener() {
+        edName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                searchData();
+            }
+        });
     }
     //删除数据
     private void delBuyBean(int position){
@@ -156,6 +170,7 @@ public class BuyBeanFragment extends BaseFragment {
             return;
         }
         buyBeanDao.insert(new BuyBean(edName.getText().toString(), CommonUtil.getTime(true), CommonUtil.getTimeLong(false)));
+        VibratorUtil.Vibrate(mContext, 200);
         edName.setText("");
         initData();
 

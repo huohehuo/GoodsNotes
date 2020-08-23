@@ -23,26 +23,31 @@
 
             <TextView
                 android:id="@+id/tv_user"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:layout_weight="1"
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
                 android:scrollHorizontally="true"
-                android:text="添加"
+                android:text="数据添加"
                 android:textColor="@android:color/black"
-                android:textSize="18sp"
+                android:textSize="@dimen/sp_18"
                 android:textStyle="bold" />
-
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_4"
+                android:layout_weight="1"
+                android:text="数据添加"
+                android:textSize="@dimen/sp_12"
+                android:textStyle="bold" />
             <ImageView
-                android:visibility="gone"
-                android:id="@+id/iv_add"
+                android:id="@+id/iv_save"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginRight="8dp"
                 android:background="@mipmap/save" />
-
         </LinearLayout>
     </android.support.v7.widget.CardView>
     <LinearLayout
@@ -54,12 +59,13 @@
         android:orientation="horizontal">
         <android.support.v7.widget.AppCompatTextView
             android:autoSizeTextType="uniform"
-            android:autoSizeMaxTextSize="20dp"
+            android:autoSizeMaxTextSize="@dimen/sp_20"
             android:id="@+id/tv_title"
             android:gravity="center"
             android:layout_width="0dp"
             android:layout_weight="5"
-            android:layout_height="38dp"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/dp_38"
             tools:text="自动长度"
             android:textStyle="bold"/>
         <!--<ImageView-->
@@ -87,6 +93,7 @@
         android:orientation="vertical">
         <include layout="@layout/line_heng" />
         <TextView
+            android:visibility="gone"
             tools:text="汇总"
             android:id="@+id/tv_result"
             android:textSize="@dimen/dp_15"
@@ -107,9 +114,206 @@
 
         <include layout="@layout/line_heng" />
     </LinearLayout>
-    <com.fangzuo.assist.widget.ViewNumber
-        android:id="@+id/tv_num"
+
+    <include layout="@layout/line_heng" />
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="规格"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18" />
+        <include layout="@layout/line_shu"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="材料"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18" />
+
+    </LinearLayout>
+    <include layout="@layout/line_heng" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="#cfcfcf"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:src="@mipmap/day_bg"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.05" />
+        <android.support.v7.widget.AppCompatTextView
+            android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="@dimen/sp_20"
+            android:id="@+id/tv_model"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/dp_38"
+            tools:text="自动长度"
+            android:textStyle="bold"/>
+        <include layout="@layout/line_shu"/>
+
+        <ImageView
+            android:src="@mipmap/day_bg"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.05" />
+        <android.support.v7.widget.AppCompatTextView
+            android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="@dimen/sp_20"
+            android:id="@+id/tv_stuff"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/dp_38"
+            tools:text="自动长度"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+    <include layout="@layout/line_heng" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="颜色"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18" />
+        <include layout="@layout/line_shu"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="单位"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18" />
+
+    </LinearLayout>
+    <include layout="@layout/line_heng" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="#cfcfcf"
+        android:orientation="horizontal">
+        <ImageView
+            android:src="@mipmap/day_bg"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.05" />
+        <android.support.v7.widget.AppCompatTextView
+            android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="@dimen/sp_20"
+            android:id="@+id/tv_color"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/dp_38"
+            tools:text="自动长度"
+            android:textStyle="bold"/>
+        <include layout="@layout/line_shu"/>
+
+        <ImageView
+            android:src="@mipmap/day_bg"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.05" />
+        <android.support.v7.widget.AppCompatTextView
+            android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="@dimen/sp_20"
+            android:id="@+id/tv_unit"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/dp_38"
+            tools:text="自动长度"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+    <include layout="@layout/line_heng" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="单价"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18" />
+        <include layout="@layout/line_shu"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="数量"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18" />
+
+    </LinearLayout>
+    <include layout="@layout/line_heng" />
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_margin="4dp"
+            android:id="@+id/ed_price"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:imeOptions="actionNone"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_edittext_selector"
+            />
+        <include layout="@layout/line_shu"/>
+        <EditText
+            android:layout_margin="4dp"
+            android:id="@+id/ed_num"
+            android:layout_width="0dp"
+            android:inputType="numberDecimal"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:imeOptions="actionNone"
+            android:background="@drawable/bg_edittext_selector"
+            android:textSize="15sp" />
+    </LinearLayout>
+    <include layout="@layout/line_heng" />
+
+
+    <!--<com.fangzuo.assist.widget.ViewNumber-->
+        <!--android:id="@+id/tv_num"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"/>-->
     <include layout="@layout/line_heng" />
 </LinearLayout>

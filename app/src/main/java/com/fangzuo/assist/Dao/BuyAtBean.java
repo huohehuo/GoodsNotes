@@ -18,6 +18,12 @@ public class BuyAtBean {
     public String FAddrName;
     public String FBuyID;
     public String FBuyName;
+    public String FSum;//数量
+    public String FPrice;//数量
+    public String FColorName;
+    public String FModelName;
+    public String FStuffName;
+    public String FUnitName;
 
 
     public String FCreateData;//创建日期
@@ -39,10 +45,12 @@ public class BuyAtBean {
 
 
 
-    @Generated(hash = 1682317223)
+    @Generated(hash = 964875290)
     public BuyAtBean(Long id, String FID, String FName, String FNum, String FAddrID,
-            String FAddrName, String FBuyID, String FBuyName, String FCreateData,
-            String FIsCloud, String FUseNum, String FMapID) {
+            String FAddrName, String FBuyID, String FBuyName, String FSum,
+            String FPrice, String FColorName, String FModelName, String FStuffName,
+            String FUnitName, String FCreateData, String FIsCloud, String FUseNum,
+            String FMapID) {
         this.id = id;
         this.FID = FID;
         this.FName = FName;
@@ -51,6 +59,12 @@ public class BuyAtBean {
         this.FAddrName = FAddrName;
         this.FBuyID = FBuyID;
         this.FBuyName = FBuyName;
+        this.FSum = FSum;
+        this.FPrice = FPrice;
+        this.FColorName = FColorName;
+        this.FModelName = FModelName;
+        this.FStuffName = FStuffName;
+        this.FUnitName = FUnitName;
         this.FCreateData = FCreateData;
         this.FIsCloud = FIsCloud;
         this.FUseNum = FUseNum;
@@ -130,6 +144,42 @@ public class BuyAtBean {
     }
     public void setFNum(String FNum) {
         this.FNum = FNum;
+    }
+    public String getFColorName() {
+        return this.FColorName;
+    }
+    public void setFColorName(String FColorName) {
+        this.FColorName = FColorName;
+    }
+    public String getFModelName() {
+        return this.FModelName;
+    }
+    public void setFModelName(String FModelName) {
+        this.FModelName = FModelName;
+    }
+    public String getFStuffName() {
+        return this.FStuffName;
+    }
+    public void setFStuffName(String FStuffName) {
+        this.FStuffName = FStuffName;
+    }
+    public String getFUnitName() {
+        return this.FUnitName;
+    }
+    public void setFUnitName(String FUnitName) {
+        this.FUnitName = FUnitName;
+    }
+    public String getFPrice() {
+        return this.FPrice;
+    }
+    public void setFPrice(String FPrice) {
+        this.FPrice = FPrice;
+    }
+    public String getFSum() {
+        return this.FSum;
+    }
+    public void setFSum(String FSum) {
+        this.FSum = FSum;
     }
 
 

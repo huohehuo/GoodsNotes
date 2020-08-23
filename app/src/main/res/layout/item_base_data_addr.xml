@@ -14,13 +14,17 @@
         <ImageView
             android:background="@mipmap/history"
             android:id="@+id/iv_mood"
+            android:layout_gravity="center"
             android:layout_width="30dp"
             android:layout_height="30dp" />
             <TextView
                 android:id="@+id/tv_name"
                 tools:text="名称"
                 android:layout_margin="4dp"
-                android:textSize="18sp"
+                android:paddingLeft="@dimen/dp_8"
+                android:textSize="@dimen/sp_20"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
@@ -30,6 +34,7 @@
                 android:layout_margin="4dp"
                 android:textSize="12sp"
                 android:gravity="right"
+                android:textColor="@color/red"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 

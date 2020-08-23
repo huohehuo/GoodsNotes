@@ -41,24 +41,40 @@ public class BuyAtRyAdapter extends RecyclerArrayAdapter<BuyAtBean> {
     class MarkHolder extends BaseViewHolder<BuyAtBean> {
 
         private TextView name;
-        private AppCompatTextView tvAddr;
+        private AppCompatTextView tvModel;
+        private AppCompatTextView tvStuff;
+        private AppCompatTextView tvUnit;
+        private AppCompatTextView tvColor;
+        private AppCompatTextView tvNum;
+        private AppCompatTextView tvPrice;
         private TextView time;
-        private TextView tvSign;
+//        private TextView tvSign;
         public MarkHolder(ViewGroup parent) {
             super(parent, R.layout.item_buyat);
             name= $(R.id.tv_name);
-            tvAddr= $(R.id.tv_addr);
+            tvModel= $(R.id.tv_model);
+            tvColor= $(R.id.tv_color);
+            tvStuff= $(R.id.tv_stuff);
+            tvNum= $(R.id.tv_num);
+            tvUnit= $(R.id.tv_unit);
+            tvPrice= $(R.id.tv_price);
             time= $(R.id.tv_time);
-            tvSign= $(R.id.tv_sign);
+//            tvSign= $(R.id.tv_sign);
         }
 
         @Override
         public void setData(BuyAtBean data) {
             super.setData(data);
-            name.setText(data.FAddrName);
-            tvAddr.setText(data.FNum);
+            name.setText("总金额:"+data.FSum);
+            tvNum.setText("数量:"+data.FNum);
+            tvPrice.setText("单价:"+data.FPrice);
+            tvStuff.setText("材料:"+data.FStuffName);
+            tvColor.setText("颜色:"+data.FColorName);
+            tvUnit.setText("单位:"+data.FUnitName);
+            tvModel.setText("规格:"+data.FModelName);
+
             time.setText(data.FCreateData);
-            tvSign.setBackgroundColor(getColor(data.FNum));
+//            tvSign.setBackgroundColor(getColor(data.FNum));
         }
     }
 

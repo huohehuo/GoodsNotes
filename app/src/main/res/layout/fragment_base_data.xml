@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -6,6 +6,33 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="4dp"
+        android:orientation="horizontal"
+        >
+
+        <EditText
+            android:id="@+id/ed_name"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_edittext_selector"
+            android:gravity="center_vertical"
+            android:hint="过滤或新增"
+            android:imeOptions="actionNone"
+            android:paddingLeft="4dp"
+            android:paddingTop="2dp"
+            android:selectAllOnFocus="true" />
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_check"
+            android:text="添加" />
+    </LinearLayout>
 
             <com.jude.easyrecyclerview.EasyRecyclerView
                 android:id="@+id/ry_list"
@@ -18,34 +45,6 @@
                 app:scrollbarStyle="insideOverlay"
                 app:scrollbars="none" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_margin="4dp"
-                android:orientation="horizontal"
-                android:layout_alignParentBottom="true"
-                >
-
-                <EditText
-                    android:id="@+id/ed_name"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_edittext_selector"
-                    android:gravity="center_vertical"
-                    android:hint="新增"
-                    android:imeOptions="actionNone"
-                    android:paddingLeft="4dp"
-                    android:paddingTop="2dp"
-                    android:selectAllOnFocus="true" />
-
-                <Button
-                    android:id="@+id/btn_add"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/btn_check"
-                    android:text="添加" />
-            </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

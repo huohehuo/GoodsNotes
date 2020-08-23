@@ -66,12 +66,7 @@ public class AddrBeanFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-//        if (null == ryList)return;
-//        if (Hawk.get(Info.ChangeView,0)==0){
-//            adapter = new HomeRyAdapter(mContext,0);
-//        }else{
-            adapter = new BaseDataAddrRyAdapter(mContext);
-//        }
+        adapter = new BaseDataAddrRyAdapter(mContext);
         ryList.setAdapter(adapter);
         ryList.setLayoutManager(new LinearLayoutManager(mContext));
         ryList.setRefreshing(true);
