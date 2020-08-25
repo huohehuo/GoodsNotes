@@ -21,6 +21,7 @@ import com.fangzuo.assist.Beans.EventBusEvent.ClassEvent;
 import com.fangzuo.assist.R;
 import com.fangzuo.assist.RxSerivce.RService;
 import com.fangzuo.assist.UI.MQTTService;
+import com.fangzuo.assist.UI.MQTTServiceS;
 import com.fangzuo.assist.Utils.BasicShareUtil;
 import com.fangzuo.assist.Utils.Config;
 import com.fangzuo.assist.Utils.EventBusInfoCode;
@@ -91,12 +92,17 @@ public class App extends MultiDexApplication {
     public static int PDA_Choose;//{" 1 G02A设备","2 8000设备","3 5000设备"4 M60,"5手机端，6 h100};
 
     public static String TOPIC = "pdatest";
+    public static String TOPIC2 = "xiaomi001";
+//    public static final String MQTT_Broker_URL = "tcp://mqtt.eclipse.org:1883";
     public static final String MQTT_Broker_URL = "tcp://129.211.59.124:1883";
 //    public static final String MQTT_Broker_URL = "tcp://192.168.31.55:1883";
     public static final String MQTT_ClientId = "xiaomi";
+    public static final String MQTT_ClientIdS = "xiaomiS";
     public static final String MQTT_Service_CLASSNAME = "com.fangzuo.assist.UI.MQTTService";
+    public static final String MQTT_Service_CLASSNAME_S = "com.fangzuo.assist.UI.MQTTServiceS";
 //    public static final String MQTT_Service_CLASSNAME = "org.eclipse.paho.android.service.MqttService";
     private static MqttAndroidClient mqttClient;
+    private static MqttAndroidClient mqttClientS;
     private static MqttCallbackExtended callbackExtended;
     private static MqttConnectOptions options;
     private Handler handler;
@@ -169,12 +175,16 @@ public class App extends MultiDexApplication {
     private void dealService(){
         Lg.e("启动。。。。");
         if (isConnectIsNomarl()){//有网络时
-            if (serviceIsRunning()){//若服务正在运行
+            if (serviceIsRunning(App.MQTT_Service_CLASSNAME)){//若服务正在运行
                 if (!isOkMqtt){//状态值false时，断开连接
                     Lg.e("服务在运行，但是已经断开连接...终止服务，并重新连接");
                     Intent intent = new Intent(mContext, MQTTService.class);
+                    Intent intentS = new Intent(mContext, MQTTServiceS.class);
                     stopService(intent);
+                    stopService(intentS);
                     Intent intentNew = new Intent(mContext, MQTTService.class);
+                    Intent intentNewS = new Intent(mContext, MQTTServiceS.class);
+                    startService(intentNew);
                     startService(intentNew);
 //                handler.postDelayed(runnable,5000);
                 }else{
@@ -185,15 +195,17 @@ public class App extends MultiDexApplication {
                 Lg.e("新开启服务");
                 isOkMqtt = false;
                 Intent intent = new Intent(mContext, MQTTService.class);
+                Intent intentS = new Intent(mContext, MQTTServiceS.class);
                 startService(intent);
+                startService(intentS);
             }
         }else{//没网络，就终止服务，并继续循环
             Intent intent = new Intent(mContext, MQTTService.class);
+            Intent intentS = new Intent(mContext, MQTTServiceS.class);
             stopService(intent);
+            stopService(intentS);
             startCheckMqtt();
         }
-
-
     }
 
 
@@ -203,6 +215,12 @@ public class App extends MultiDexApplication {
                 App.MQTT_Broker_URL, App.MQTT_ClientId);
         return mqttClient;
     }
+    public static MqttAndroidClient getMqttClientS(Context context) {
+        mqttClientS = new MqttAndroidClient(context,
+                App.MQTT_Broker_URL, App.MQTT_ClientIdS);
+        return mqttClientS;
+    }
+
 
     private void setRunnable(){
         runnable = new Runnable() {
@@ -319,15 +337,17 @@ public class App extends MultiDexApplication {
         }
     }
     //检测MQTTService是否在运行
-    public boolean serviceIsRunning() {
+    public boolean serviceIsRunning(String server) {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-            if (App.MQTT_Service_CLASSNAME.equals(service.service.getClassName())) {
+            if (server.equals(service.service.getClassName())) {
                 return true;
             }
         }
         return false;
     }
+
+
     //检测Mqtt是否已经连接
     public boolean isConnected() {
         if (mqttClient == null) {
