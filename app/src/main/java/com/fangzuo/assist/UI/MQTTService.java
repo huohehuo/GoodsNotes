@@ -8,9 +8,11 @@ import android.widget.Toast;
 
 import com.fangzuo.assist.Activity.Crash.App;
 import com.fangzuo.assist.Beans.EventBusEvent.ClassEvent;
+import com.fangzuo.assist.Dao.CheckBeforeBean;
 import com.fangzuo.assist.Utils.EventBusInfoCode;
 import com.fangzuo.assist.Utils.EventBusUtil;
 import com.fangzuo.assist.Utils.Lg;
+import com.google.gson.Gson;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.DisconnectedBufferOptions;
@@ -121,6 +123,9 @@ public class MQTTService extends Service {
                         public void messageArrived(String topic, MqttMessage message) throws Exception {
 //                            onDataReceiveCallBack(message.toString());
                             Lg.e("收到数据"+topic+message.toString().length(),message.toString());
+                            CheckBeforeBean dBean = new Gson().fromJson(message.toString(), CheckBeforeBean.class);
+                            Lg.e("解析",dBean);
+                            Lg.e("解析list",dBean.getMaterielList());
                             EventBusUtil.sendEvent(new ClassEvent(EventBusInfoCode.Event_MQTT, message.toString()));
                         }
 

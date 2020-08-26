@@ -55,6 +55,7 @@ public class DaoMaster extends AbstractDaoMaster {
         WanglaikemuDao.createTable(db, ifNotExists);
         WaveHouseDao.createTable(db, ifNotExists);
         YuandanTypeDao.createTable(db, ifNotExists);
+        CheckBeforeBeanDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
@@ -93,6 +94,7 @@ public class DaoMaster extends AbstractDaoMaster {
         WanglaikemuDao.dropTable(db, ifExists);
         WaveHouseDao.dropTable(db, ifExists);
         YuandanTypeDao.dropTable(db, ifExists);
+        CheckBeforeBeanDao.dropTable(db, ifExists);
     }
 
     /**
@@ -145,6 +147,7 @@ public class DaoMaster extends AbstractDaoMaster {
         registerDaoClass(WanglaikemuDao.class);
         registerDaoClass(WaveHouseDao.class);
         registerDaoClass(YuandanTypeDao.class);
+        registerDaoClass(CheckBeforeBeanDao.class);
     }
 
     public DaoSession newSession() {
