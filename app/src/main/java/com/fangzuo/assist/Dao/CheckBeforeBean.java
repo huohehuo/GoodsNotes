@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * Created by NB on 2017/7/26.
  */
+
 @Entity
 public class CheckBeforeBean {
     @Id(autoincrement = true)
